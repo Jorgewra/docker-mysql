@@ -2,4 +2,4 @@
 
 Criar rede
 
-    docker network create -d bridge my-bridge-network
+    docker network create -d bridge mysql-network
