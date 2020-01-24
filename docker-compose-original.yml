@@ -4,20 +4,21 @@ services:
     image: mysql:8.0.1
     container_name: mysql
     environment: 
-       MYSQL_ROOT_PASSWORD: "123"
-       TZ: America/Manaus
+      MYSQL_ROOT_PASSWORD: "123"
     ports:
-       - '3306:3306'
+      - '3306:3306'
     volumes:
-       - ./mysql-db:/var/lib/mysql  
+      - mysql-db:/var/lib/mysql  
   phpmyadmin:
     image: phpmyadmin/phpmyadmin:latest
     container_name: phpmyadmin
     ports:
-       - 8080:80
+      - 8080:80
     links: 
       - mysql:db
+volumes:
+  mysql-db:
 networks:
-   default:
-      external:
-         name: mysql-network
+  default:
+    external:
+      name: mysql-network
